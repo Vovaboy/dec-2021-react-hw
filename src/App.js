@@ -1,12 +1,14 @@
 import React from 'react';
-import Button from "./components/Button/Button";
+import {Button} from "./components";
+
 
 const App = () => {
     return (
         <div>
-          <Button>Click</Button>
+            <Button>Click</Button>
         </div>
     );
+
 };
 
 export default App;

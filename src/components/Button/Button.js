@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Button = (cildren) => {
+const Button = (children) => {
     return (
-      <button>{cildren}</button>
+      <button>{children}</button>
     );
 };
 
-export default Button;
+export {Button};
