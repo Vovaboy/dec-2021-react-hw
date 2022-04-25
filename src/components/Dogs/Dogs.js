@@ -1,29 +1,25 @@
-import {useReducer, useRef} from "react";
-import {ADDDog,} from "../../redusers";
+import {useRef} from "react";
+import {addDog,useHookReducer} from "../../redusers";
 import {Dog} from "../Dog/Dog";
 
 const Dogs = () => {
     const name = useRef();
 
-    const [state, dispatch] = useReducer();
+    const [state, dispatch] = useHookReducer();
 
     const newDog = () => {
         const newDog = name.current.value;
-        dispatch({type: ADDDog, payload: {dog: newDog}})
+        dispatch({type: addDog, payload: {dog: newDog}})
         name.current.value = '';
     }
 
     return (
-        <<div>
-    {
-        state.dogs.map(dog => (
-            <div key={dog.id}>
-                {dog.name}
-                <button onClick={() => dispatch({ type: 'deleteDog', payload: dog.id })}>delete</button>
+        <div>
+            <input type="text" ref={name} placeholder={'Dog name'}/>
+            <button onClick={() => newDog()}>save</button>
+            <div style={{marginTop: "30px"}}>
+                {state && state.map((dog) => <Dog key={dog.id} dog={dog} dispatch={dispatch}/>)}
             </div>
-        ))
-    }
-</div>
         </div>
     );
 };

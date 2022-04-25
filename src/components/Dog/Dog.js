@@ -1,4 +1,4 @@
-import {DELETE} from '../../redusers';
+import {Delete} from '../../redusers';
 
 
 const Dog = ({dog, dispatch}) => {
@@ -6,7 +6,7 @@ const Dog = ({dog, dispatch}) => {
     return (
         <div>
             {id}--{name}
-            <button onClick={()=>dispatch({type: DELETE, payload:{id:id}})}>delete</button>
+            <button onClick={()=>dispatch({type: Delete, payload:{id:id}})}>delete</button>
 
         </div>
     );
